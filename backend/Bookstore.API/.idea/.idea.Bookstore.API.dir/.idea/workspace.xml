@@ -17,6 +17,26 @@
   <component name="EmbeddingIndexingInfo">
     <option name="cachedIndexableFilesCount" value="11" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "mshep8"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "git@github.com:mshep8/Shepherd_Mission11.git",
+    "accountId": "70f063a5-be5f-442b-9721-b52c7111a135"
+  }
+}]]></component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Controllers/BooksController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Data/Book.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Data/BookstoreDbContext.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
@@ -37,6 +57,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -90,6 +111,7 @@
       <updated>1773692983997</updated>
       <workItem from="1773692985079" duration="15000" />
       <workItem from="1773693006943" duration="921000" />
+      <workItem from="1773693941367" duration="2697000" />
     </task>
     <servers />
   </component>

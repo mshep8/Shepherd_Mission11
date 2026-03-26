@@ -42,12 +42,14 @@ builder.Services.AddDbContext<BookstoreDbContext>(options =>
 // CORS configuration
 // ------------------------------------------------------------
 
-// Allows the React frontend (running on port 5173) to call this API
+// Allows local React frontend ports (for Vite auto-port changes) to call this API
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.WithOrigins("http://localhost:5173")
+        policy.SetIsOriginAllowed(origin =>
+            origin.StartsWith("http://localhost:") || origin.StartsWith("http://127.0.0.1:")
+        )
             .AllowAnyHeader()
             .AllowAnyMethod();
     });

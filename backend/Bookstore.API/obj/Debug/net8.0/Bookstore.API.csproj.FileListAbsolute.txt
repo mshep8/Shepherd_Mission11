@@ -135,3 +135,4 @@
 /Users/marycatherineshepherd/Documents/413/Shepherd_Mission11/backend/Bookstore.API/obj/Debug/net8.0/Bookstore.API.pdb
 /Users/marycatherineshepherd/Documents/413/Shepherd_Mission11/backend/Bookstore.API/obj/Debug/net8.0/Bookstore.API.genruntimeconfig.cache
 /Users/marycatherineshepherd/Documents/413/Shepherd_Mission11/backend/Bookstore.API/obj/Debug/net8.0/ref/Bookstore.API.dll
+/Users/marycatherineshepherd/Documents/413/Shepherd_Mission11/backend/Bookstore.API/obj/Debug/net8.0/Bookstore.API.sourcelink.json

@@ -1,13 +1,14 @@
 /*
     Mary Catherine Shepherd
     IS 413
-    Mission 11
+    Mission 12
 
     BooksController.cs
 
     This controller handles API requests related to books.
     It retrieves book data from the SQLite database and
-    returns it to the React frontend with pagination and sorting.
+    returns it to the React frontend with pagination,
+    sorting, and category filtering.
 */
 
 using Microsoft.AspNetCore.Mvc;
@@ -30,13 +31,19 @@ namespace Bookstore.API.Controllers
 
         // ------------------------------------------------------------
         // GET: api/Books/AllBooks
-        // Returns books with pagination and optional sorting
+        // Returns books with pagination, sorting, and category filtering
         // ------------------------------------------------------------
         [HttpGet("AllBooks")]
-        public IActionResult GetBooks(int pageSize = 5, int pageNum = 1, string sortBy = "title")
+        public IActionResult GetBooks(string? category, int pageSize = 5, int pageNum = 1, string sortBy = "title")
         {
             // Start with all books in the database
             var query = _bookContext.Books.AsQueryable();
+
+            // Filter by category if one is selected
+            if (!string.IsNullOrEmpty(category))
+            {
+                query = query.Where(b => b.Classification == category);
+            }
 
             // Sort books by title if requested
             if (sortBy.ToLower() == "title")
@@ -44,24 +51,39 @@ namespace Bookstore.API.Controllers
                 query = query.OrderBy(b => b.Title);
             }
 
-            // Apply pagination (skip previous pages, then take pageSize results)
+            // Count books after filtering so pagination adjusts correctly
+            var totalNumBooks = query.Count();
+
+            // Apply pagination
             var books = query
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();
 
-            // Get the total number of books in the database
-            var totalNumBooks = _bookContext.Books.Count();
-
-            // Create an object containing both the books and total count
+            // Return both the books and the total count
             var result = new
             {
                 Books = books,
                 TotalNumBooks = totalNumBooks
             };
 
-            // Return the result as JSON to the frontend
             return Ok(result);
+        }
+
+        // ------------------------------------------------------------
+        // GET: api/Books/Categories
+        // Returns a distinct list of book categories
+        // ------------------------------------------------------------
+        [HttpGet("Categories")]
+        public IActionResult GetCategories()
+        {
+            var categories = _bookContext.Books
+                .Select(b => b.Classification)
+                .Distinct()
+                .OrderBy(c => c)
+                .ToList();
+
+            return Ok(categories);
         }
     }
 }

@@ -17,6 +17,7 @@ import './index.css'
 
 // Import Bootstrap styling for UI components
 import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 
 
 // Render the App component inside the root element in index.html

@@ -11,16 +11,23 @@
 */
 
 import './App.css'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import BookList from './BookList'
+import CartPage from './pages/CartPage'
+import { CartProvider } from './context/CartContext'
 
 function App() {
-
-  // Render the BookList component for the application
-  return (
-    <>
-      <BookList />
-    </>
-  )
+    return (
+        <BrowserRouter>
+            <CartProvider>
+                <Routes>
+                    <Route path="/" element={<BookList />} />
+                    <Route path="/cart" element={<CartPage />} />
+                    <Route path="*" element={<Navigate to="/" replace />} />
+                </Routes>
+            </CartProvider>
+        </BrowserRouter>
+    )
 
 }
 
