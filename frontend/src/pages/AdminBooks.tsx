@@ -108,9 +108,17 @@ function AdminBooks() {
                 setError('')
                 fetchBooks()
             } else {
-                setError('Failed to add book')
+                const responseText = await response.text()
+                console.log('Add error response:', responseText)
+                try {
+                    const errorData = JSON.parse(responseText)
+                    setError('Failed to add book: ' + (errorData.message || JSON.stringify(errorData)))
+                } catch {
+                    setError('Failed to add book: ' + responseText)
+                }
             }
         } catch (err) {
+            console.log('Add error:', err)
             setError('Error adding book: ' + (err instanceof Error ? err.message : 'Unknown error'))
         }
     }
@@ -165,10 +173,17 @@ function AdminBooks() {
                 setError('')
                 fetchBooks()
             } else {
-                const errorData = await response.json()
-                setError('Failed to update book: ' + (errorData.message || 'Unknown error'))
+                const responseText = await response.text()
+                console.log('Update error response:', responseText)
+                try {
+                    const errorData = JSON.parse(responseText)
+                    setError('Failed to update book: ' + (errorData.message || JSON.stringify(errorData)))
+                } catch {
+                    setError('Failed to update book: ' + responseText)
+                }
             }
         } catch (err) {
+            console.log('Update error:', err)
             setError('Error updating book: ' + (err instanceof Error ? err.message : 'Unknown error'))
         }
     }
