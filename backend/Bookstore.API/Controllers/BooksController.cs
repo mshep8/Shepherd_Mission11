@@ -98,6 +98,12 @@ namespace Bookstore.API.Controllers
                 return BadRequest("Book cannot be null");
             }
 
+            // Ensure both Classification and Category are set to the same value
+            if (string.IsNullOrEmpty(book.Category))
+            {
+                book.Category = book.Classification;
+            }
+
             _bookContext.Books.Add(book);
             _bookContext.SaveChanges();
 
@@ -127,6 +133,7 @@ namespace Bookstore.API.Controllers
             existingBook.Publisher = book.Publisher;
             existingBook.ISBN = book.ISBN;
             existingBook.Classification = book.Classification;
+            existingBook.Category = book.Classification;  // Keep both fields in sync
             existingBook.Price = book.Price;
 
             _bookContext.SaveChanges();

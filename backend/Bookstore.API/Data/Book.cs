@@ -40,6 +40,9 @@ namespace Bookstore.API.Data
         [Required]
         public string Classification { get; set; }
 
+        // Category of the book (duplicate field in database - synced with Classification)
+        public string? Category { get; set; }
+
         // Number of pages in the book
         [Required]
         public int PageCount { get; set; }
