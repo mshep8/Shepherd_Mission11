@@ -206,7 +206,7 @@ function BookList() {
                     </div>
 
                     {sortedBooks.map((b) => (
-                        <div key={`${b.bookId}-${b.isbn}`} className="card mb-3">
+                        <div key={`${b.bookID}-${b.isbn}`} className="card mb-3">
                             <div className="card-body">
                                 <div className="row g-3 align-items-center">
                                     <div className="col-md-8">
