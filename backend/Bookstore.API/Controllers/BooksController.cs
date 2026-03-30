@@ -85,5 +85,72 @@ namespace Bookstore.API.Controllers
 
             return Ok(categories);
         }
+
+        // ------------------------------------------------------------
+        // POST: api/Books
+        // Creates a new book in the database
+        // ------------------------------------------------------------
+        [HttpPost]
+        public IActionResult CreateBook([FromBody] Book book)
+        {
+            if (book == null)
+            {
+                return BadRequest("Book cannot be null");
+            }
+
+            _bookContext.Books.Add(book);
+            _bookContext.SaveChanges();
+
+            return CreatedAtAction(nameof(GetBooks), new { id = book.BookId }, book);
+        }
+
+        // ------------------------------------------------------------
+        // PUT: api/Books/{id}
+        // Updates an existing book in the database
+        // ------------------------------------------------------------
+        [HttpPut("{id}")]
+        public IActionResult UpdateBook(int id, [FromBody] Book book)
+        {
+            if (book == null)
+            {
+                return BadRequest("Book cannot be null");
+            }
+
+            var existingBook = _bookContext.Books.Find(id);
+            if (existingBook == null)
+            {
+                return NotFound($"Book with id {id} not found");
+            }
+
+            existingBook.Title = book.Title;
+            existingBook.Author = book.Author;
+            existingBook.Publisher = book.Publisher;
+            existingBook.ISBN = book.ISBN;
+            existingBook.Classification = book.Classification;
+            existingBook.Price = book.Price;
+
+            _bookContext.SaveChanges();
+
+            return Ok(existingBook);
+        }
+
+        // ------------------------------------------------------------
+        // DELETE: api/Books/{id}
+        // Deletes a book from the database
+        // ------------------------------------------------------------
+        [HttpDelete("{id}")]
+        public IActionResult DeleteBook(int id)
+        {
+            var book = _bookContext.Books.Find(id);
+            if (book == null)
+            {
+                return NotFound($"Book with id {id} not found");
+            }
+
+            _bookContext.Books.Remove(book);
+            _bookContext.SaveChanges();
+
+            return Ok(new { message = $"Book with id {id} deleted successfully" });
+        }
     }
 }

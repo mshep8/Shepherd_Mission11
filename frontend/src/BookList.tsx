@@ -179,6 +179,9 @@ function BookList() {
                             >
                                 Cart Help
                             </button>
+                            <Link className="btn btn-warning w-100 mt-2" to="/adminbooks">
+                                Admin Panel
+                            </Link>
                         </div>
                     </div>
                 </aside>

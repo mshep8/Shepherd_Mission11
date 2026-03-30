@@ -14,6 +14,7 @@ import './App.css'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import BookList from './BookList'
 import CartPage from './pages/CartPage'
+import AdminBooks from './pages/AdminBooks'
 import { CartProvider } from './context/CartContext'
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<BookList />} />
                     <Route path="/cart" element={<CartPage />} />
+                    <Route path="/adminbooks" element={<AdminBooks />} />
                     <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
             </CartProvider>
