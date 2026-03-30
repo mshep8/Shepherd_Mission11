@@ -10,7 +10,7 @@
 */
 
 import { useState, useEffect } from 'react'
-import { Book } from '../types/Book'
+import type { Book } from '../types/Book'
 import { useNavigate } from 'react-router-dom'
 import '../styles/AdminBooks.css'
 

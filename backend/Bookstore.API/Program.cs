@@ -20,7 +20,11 @@ var builder = WebApplication.CreateBuilder(args);
 // ------------------------------------------------------------
 
 // Enables controller support for building API endpoints
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+    });
 
 // Allows Swagger to discover API endpoints automatically
 builder.Services.AddEndpointsApiExplorer();

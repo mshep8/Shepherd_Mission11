@@ -101,7 +101,7 @@ namespace Bookstore.API.Controllers
             _bookContext.Books.Add(book);
             _bookContext.SaveChanges();
 
-            return CreatedAtAction(nameof(GetBooks), new { id = book.BookId }, book);
+            return CreatedAtAction(nameof(GetBooks), new { id = book.BookID }, book);
         }
 
         // ------------------------------------------------------------

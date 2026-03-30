@@ -1,5 +1,6 @@
 /Users/marycatherineshepherd/Documents/413/Shepherd_Mission11/backend/Bookstore.API/bin/Debug/net8.0/appsettings.Development.json
 /Users/marycatherineshepherd/Documents/413/Shepherd_Mission11/backend/Bookstore.API/bin/Debug/net8.0/appsettings.json
+/Users/marycatherineshepherd/Documents/413/Shepherd_Mission11/backend/Bookstore.API/bin/Debug/net8.0/package-lock.json
 /Users/marycatherineshepherd/Documents/413/Shepherd_Mission11/backend/Bookstore.API/bin/Debug/net8.0/Bookstore.API.staticwebassets.endpoints.json
 /Users/marycatherineshepherd/Documents/413/Shepherd_Mission11/backend/Bookstore.API/bin/Debug/net8.0/Bookstore.API
 /Users/marycatherineshepherd/Documents/413/Shepherd_Mission11/backend/Bookstore.API/bin/Debug/net8.0/Bookstore.API.deps.json
@@ -120,6 +121,7 @@
 /Users/marycatherineshepherd/Documents/413/Shepherd_Mission11/backend/Bookstore.API/obj/Debug/net8.0/Bookstore.API.csproj.CoreCompileInputs.cache
 /Users/marycatherineshepherd/Documents/413/Shepherd_Mission11/backend/Bookstore.API/obj/Debug/net8.0/Bookstore.API.MvcApplicationPartsAssemblyInfo.cs
 /Users/marycatherineshepherd/Documents/413/Shepherd_Mission11/backend/Bookstore.API/obj/Debug/net8.0/Bookstore.API.MvcApplicationPartsAssemblyInfo.cache
+/Users/marycatherineshepherd/Documents/413/Shepherd_Mission11/backend/Bookstore.API/obj/Debug/net8.0/Bookstore.API.sourcelink.json
 /Users/marycatherineshepherd/Documents/413/Shepherd_Mission11/backend/Bookstore.API/obj/Debug/net8.0/rjimswa.dswa.cache.json
 /Users/marycatherineshepherd/Documents/413/Shepherd_Mission11/backend/Bookstore.API/obj/Debug/net8.0/rjsmrazor.dswa.cache.json
 /Users/marycatherineshepherd/Documents/413/Shepherd_Mission11/backend/Bookstore.API/obj/Debug/net8.0/rjsmcshtml.dswa.cache.json
@@ -135,5 +137,3 @@
 /Users/marycatherineshepherd/Documents/413/Shepherd_Mission11/backend/Bookstore.API/obj/Debug/net8.0/Bookstore.API.pdb
 /Users/marycatherineshepherd/Documents/413/Shepherd_Mission11/backend/Bookstore.API/obj/Debug/net8.0/Bookstore.API.genruntimeconfig.cache
 /Users/marycatherineshepherd/Documents/413/Shepherd_Mission11/backend/Bookstore.API/obj/Debug/net8.0/ref/Bookstore.API.dll
-/Users/marycatherineshepherd/Documents/413/Shepherd_Mission11/backend/Bookstore.API/obj/Debug/net8.0/Bookstore.API.sourcelink.json
-/Users/marycatherineshepherd/Documents/413/Shepherd_Mission11/backend/Bookstore.API/bin/Debug/net8.0/package-lock.json
