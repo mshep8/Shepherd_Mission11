@@ -13,7 +13,7 @@
 export interface Book {
 
     // Unique identifier for each book
-    bookId: number
+    bookID: number
 
     // Title of the book
     title: string
@@ -29,6 +29,9 @@ export interface Book {
 
     // Category or classification of the book
     classification: string
+
+    // Category field (synced with classification)
+    category?: string
 
     // Number of pages in the book
     pageCount: number

@@ -142,13 +142,13 @@ function AdminBooks() {
         if (!selectedBook) return
 
         try {
-            const response = await fetch(`http://localhost:5002/api/books/${selectedBook.bookId}`, {
+            const response = await fetch(`http://localhost:5002/api/books/${selectedBook.bookID}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    bookId: selectedBook.bookId,
+                    bookID: selectedBook.bookID,
                     title: formData.title,
                     author: formData.author,
                     publisher: formData.publisher,
@@ -372,7 +372,7 @@ function AdminBooks() {
                                 </thead>
                                 <tbody>
                                     {books.map(book => (
-                                        <tr key={book.bookId}>
+                                        <tr key={book.bookID}>
                                             <td>{book.title}</td>
                                             <td>{book.author}</td>
                                             <td>{book.publisher}</td>
@@ -388,7 +388,7 @@ function AdminBooks() {
                                                 </button>
                                                 <button
                                                     className="delete-btn btn-danger"
-                                                    onClick={() => handleDeleteBook(book.bookId)}
+                                                    onClick={() => handleDeleteBook(book.bookID)}
                                                 >
                                                     Delete
                                                 </button>
