@@ -134,6 +134,7 @@ namespace Bookstore.API.Controllers
             existingBook.ISBN = book.ISBN;
             existingBook.Classification = book.Classification;
             existingBook.Category = book.Classification;  // Keep both fields in sync
+            existingBook.PageCount = book.PageCount;
             existingBook.Price = book.Price;
 
             _bookContext.SaveChanges();

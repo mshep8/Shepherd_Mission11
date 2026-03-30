@@ -153,10 +153,20 @@ function AdminBooks() {
 
             if (response.ok) {
                 setSelectedBook(null)
+                setFormData({
+                    title: '',
+                    author: '',
+                    publisher: '',
+                    isbn: '',
+                    classification: '',
+                    pageCount: 0,
+                    price: 0
+                })
                 setError('')
                 fetchBooks()
             } else {
-                setError('Failed to update book')
+                const errorData = await response.json()
+                setError('Failed to update book: ' + (errorData.message || 'Unknown error'))
             }
         } catch (err) {
             setError('Error updating book: ' + (err instanceof Error ? err.message : 'Unknown error'))
