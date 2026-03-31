@@ -5,12 +5,8 @@
       "serve": "/index.html",
       "statusCode": 200
     }
-  ],
-  "navigationFallback": {
-    "rewrite": "/index.html",
-    "exclude": ["/api/*"]
-  },
-  "responseOverrides": {},
+  ]
+}
   "platformErrorOverrides": {},
   "globalHeaders": {},
   "mimeTypes": {},
