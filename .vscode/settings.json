@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/e2553a9b-139e-46a1-bf47-c3b777bc72db/resourceGroups/appsvc_windows_francecentral/providers/Microsoft.Web/sites/Mission13-MaryCatherine-Bookstore",
+    "appService.deploySubpath": "backend/Bookstore.API/publish"
+}
