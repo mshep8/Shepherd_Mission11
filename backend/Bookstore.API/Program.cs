@@ -46,13 +46,15 @@ builder.Services.AddDbContext<BookstoreDbContext>(options =>
 // CORS configuration
 // ------------------------------------------------------------
 
-// Allows local React frontend ports (for Vite auto-port changes) to call this API
+// Allows local React frontend ports and Azure Static Web App to call this API
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
         policy.SetIsOriginAllowed(origin =>
-            origin.StartsWith("http://localhost:") || origin.StartsWith("http://127.0.0.1:")
+            origin.StartsWith("http://localhost:") ||
+            origin.StartsWith("http://127.0.0.1:") ||
+            origin == "https://thankful-river-02500681e.6.azurestaticapps.net"
         )
             .AllowAnyHeader()
             .AllowAnyMethod();
