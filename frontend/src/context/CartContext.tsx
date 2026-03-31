@@ -18,9 +18,9 @@ interface CartContextType {
     items: CartItem[]
     lastBookListState: BookListViewState | null
     addToCart: (book: Book, returnState: BookListViewState) => void
-    decreaseQuantity: (bookId: number) => void
-    increaseQuantity: (bookId: number) => void
-    removeFromCart: (bookId: number) => void
+    decreaseQuantity: (bookID: number) => void
+    increaseQuantity: (bookID: number) => void
+    removeFromCart: (bookID: number) => void
     clearCart: () => void
     rememberBookListState: (state: BookListViewState) => void
     itemCount: number
@@ -79,10 +79,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
     const addToCart = useCallback((book: Book, returnState: BookListViewState) => {
         setLastBookListState(returnState)
         setItems((prev) => {
-            const existing = prev.find((i) => i.book.bookId === book.bookId)
+            const existing = prev.find((i) => i.book.bookID === book.bookID)
             if (existing) {
                 return prev.map((i) =>
-                    i.book.bookId === book.bookId ? { ...i, quantity: i.quantity + 1 } : i
+                    i.book.bookID === book.bookID ? { ...i, quantity: i.quantity + 1 } : i
                 )
             }
 
@@ -90,18 +90,18 @@ export function CartProvider({ children }: { children: ReactNode }) {
         })
     }, [])
 
-    const increaseQuantity = useCallback((bookId: number) => {
+    const increaseQuantity = useCallback((bookID: number) => {
         setItems((prev) =>
             prev.map((i) =>
-                i.book.bookId === bookId ? { ...i, quantity: i.quantity + 1 } : i
+                i.book.bookID === bookID ? { ...i, quantity: i.quantity + 1 } : i
             )
         )
     }, [])
 
-    const decreaseQuantity = useCallback((bookId: number) => {
+    const decreaseQuantity = useCallback((bookID: number) => {
         setItems((prev) =>
             prev.flatMap((i) => {
-                if (i.book.bookId !== bookId) {
+                if (i.book.bookID !== bookID) {
                     return [i]
                 }
                 if (i.quantity <= 1) {
@@ -112,8 +112,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
         )
     }, [])
 
-    const removeFromCart = useCallback((bookId: number) => {
-        setItems((prev) => prev.filter((i) => i.book.bookId !== bookId))
+    const removeFromCart = useCallback((bookID: number) => {
+        setItems((prev) => prev.filter((i) => i.book.bookID !== bookID))
     }, [])
 
     const clearCart = useCallback(() => {

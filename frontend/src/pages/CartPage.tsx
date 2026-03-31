@@ -56,7 +56,7 @@ function CartPage() {
                                 {items.map((item) => {
                                     const subtotal = item.quantity * item.book.price
                                     return (
-                                        <tr key={`${item.book.bookId}-${item.book.isbn}`}>
+                                        <tr key={`${item.book.bookID}-${item.book.isbn}`}>
                                             <td>
                                                 <div className="fw-semibold">{item.book.title}</div>
                                                 <div className="text-muted small">
@@ -72,7 +72,7 @@ function CartPage() {
                                                     <button
                                                         className="btn btn-outline-secondary"
                                                         onClick={() =>
-                                                            decreaseQuantity(item.book.bookId)
+                                                            decreaseQuantity(item.book.bookID)
                                                         }
                                                     >
                                                         -
@@ -86,7 +86,7 @@ function CartPage() {
                                                     <button
                                                         className="btn btn-outline-secondary"
                                                         onClick={() =>
-                                                            increaseQuantity(item.book.bookId)
+                                                            increaseQuantity(item.book.bookID)
                                                         }
                                                     >
                                                         +
@@ -101,7 +101,7 @@ function CartPage() {
                                                 <button
                                                     className="btn btn-sm btn-outline-danger"
                                                     onClick={() =>
-                                                        removeFromCart(item.book.bookId)
+                                                        removeFromCart(item.book.bookID)
                                                     }
                                                 >
                                                     Remove
