@@ -5,5 +5,19 @@
       "serve": "/index.html",
       "statusCode": 200
     }
+  ],
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": ["/api/*"]
+  },
+  "responseOverrides": {},
+  "platformErrorOverrides": {},
+  "globalHeaders": {},
+  "mimeTypes": {},
+  "forwarding": [
+    {
+      "route": "/api/*",
+      "rewrite": "https://mission13-marycatherine-bookstore-htc9gef6cmcqh7ar.francecentral-01.azurewebsites.net/api/:*"
+    }
   ]
 }
