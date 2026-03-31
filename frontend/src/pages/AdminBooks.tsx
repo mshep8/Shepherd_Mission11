@@ -13,6 +13,7 @@ import { useState, useEffect } from 'react'
 import type { Book } from '../types/Book'
 import { useNavigate } from 'react-router-dom'
 import '../styles/AdminBooks.css'
+import { API_BASE_URL } from '../api/api'
 
 function AdminBooks() {
     const [books, setBooks] = useState<Book[]>([])
@@ -41,7 +42,7 @@ function AdminBooks() {
 
     const fetchBooks = async () => {
         try {
-            const response = await fetch('http://localhost:5002/api/books/AllBooks?pageSize=100')
+            const response = await fetch(`${API_BASE_URL}/books/AllBooks?pageSize=100`)
             const data = await response.json()
             setBooks(data.books || [])
             setLoading(false)
@@ -53,7 +54,7 @@ function AdminBooks() {
 
     const fetchCategories = async () => {
         try {
-            const response = await fetch('http://localhost:5002/api/books/Categories')
+            const response = await fetch(`${API_BASE_URL}/books/Categories`)
             const data = await response.json()
             setCategories(data || [])
         } catch (err) {
@@ -71,14 +72,12 @@ function AdminBooks() {
 
     const handleAddBook = async (e: React.FormEvent) => {
         e.preventDefault()
-        
         if (!formData.title || !formData.author || !formData.publisher || !formData.isbn || !formData.classification) {
             setError('Please fill in all required fields')
             return
         }
-
         try {
-            const response = await fetch('http://localhost:5002/api/books', {
+            const response = await fetch(`${API_BASE_URL}/books`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -93,7 +92,6 @@ function AdminBooks() {
                     price: formData.price
                 })
             })
-
             if (response.ok) {
                 setFormData({
                     title: '',
@@ -138,11 +136,9 @@ function AdminBooks() {
 
     const handleUpdateBook = async (e: React.FormEvent) => {
         e.preventDefault()
-
         if (!selectedBook) return
-
         try {
-            const response = await fetch(`http://localhost:5002/api/books/${selectedBook.bookID}`, {
+            const response = await fetch(`${API_BASE_URL}/books/${selectedBook.bookID}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -158,7 +154,6 @@ function AdminBooks() {
                     price: formData.price
                 })
             })
-
             if (response.ok) {
                 setSelectedBook(null)
                 setFormData({
@@ -192,12 +187,10 @@ function AdminBooks() {
         if (!window.confirm('Are you sure you want to delete this book?')) {
             return
         }
-
         try {
-            const response = await fetch(`http://localhost:5002/api/books/${bookId}`, {
+            const response = await fetch(`${API_BASE_URL}/books/${bookId}`, {
                 method: 'DELETE'
             })
-
             if (response.ok) {
                 setError('')
                 fetchBooks()

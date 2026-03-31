@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Tooltip } from 'bootstrap'
 import type { Book } from './types/Book'
 import { useCart } from './context/CartContext'
+import { API_BASE_URL } from './api/api'
 
 interface BooksApiResponse {
     books?: Book[]
@@ -32,14 +33,13 @@ function BookList() {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await fetch('http://localhost:5002/api/Books/Categories')
+                const response = await fetch(`${API_BASE_URL}/Books/Categories`)
                 const data = await response.json()
                 setCategories(data)
             } catch {
                 setErrorMessage('Could not load categories. Make sure the backend API is running.')
             }
         }
-
         fetchCategories()
     }, [])
 
@@ -52,14 +52,11 @@ function BookList() {
                     category: selectedCategory,
                 })
                 const response = await fetch(
-                    `http://localhost:5002/api/Books/AllBooks?${params.toString()}`
+                    `${API_BASE_URL}/Books/AllBooks?${params.toString()}`
                 )
-
                 const data = (await response.json()) as BooksApiResponse
-
                 const returnedBooks = data.books ?? data.Books ?? []
                 const totalBooks = data.totalNumBooks ?? data.TotalNumBooks ?? 0
-
                 setBooks(returnedBooks)
                 setTotalPages(Math.max(1, Math.ceil(totalBooks / pageSize)))
                 setErrorMessage('')
@@ -69,7 +66,6 @@ function BookList() {
                 setErrorMessage('Could not load books. Make sure the backend API is running.')
             }
         }
-
         fetchBooks()
     }, [pageSize, pageNum, selectedCategory])
 
